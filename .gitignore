@@ -97,3 +97,11 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
+
+# Linux build output
+*.x86_64
+*_Data/
+*_BurstDebugInformation_DoNotShip/
+UnityPlayer.so
+libdecor-0.so.0
+libdecor-cairo.so
