@@ -1,10 +1,7 @@
-// Coded by Developer Jake -- https://www.youtube.com/developerjake
-// Follow the Backrooms Game Lab (Part 7) to understand what this is for
-
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class KeyDoor : MonoBehaviour // This script should be on the Locked Door Trigger
+public class KeyDoor : MonoBehaviour
 {
     [Header("Attributes")]
    
@@ -12,7 +9,7 @@ public class KeyDoor : MonoBehaviour // This script should be on the Locked Door
 
     [Header("References")]
 
-    public GameObject CursorHover; // The hover cursor that should show when the player is looking at the door
+    public GameObject CursorHover;
 
     public Animation Door;
 
@@ -22,20 +19,20 @@ public class KeyDoor : MonoBehaviour // This script should be on the Locked Door
 
     private void Start()
     {
-        km = FindFirstObjectByType<KeyManager>(); // Assign
+        km = FindFirstObjectByType<KeyManager>();
     }
 
-    private void OnMouseOver() // Activates when the player looks at the door
+    private void OnMouseOver()
     {
 
-        if ( PlayerCasting.DistanceFromTarget <= 4 ) // If the player IS close enough to the door..
+        if ( PlayerCasting.DistanceFromTarget <= 4 )
         {
 
             CursorHover.SetActive(true);
 
 
 
-            if (Keyboard.current.eKey.wasPressedThisFrame) // If the player presses E..
+            if (Keyboard.current.eKey.wasPressedThisFrame)
             {
 
                 string foundKey = null;
@@ -59,7 +56,7 @@ public class KeyDoor : MonoBehaviour // This script should be on the Locked Door
 
         }
 
-        else // If the player is NOT close enough to the door
+        else
         {
 
             CursorHover.SetActive(false);
@@ -69,7 +66,7 @@ public class KeyDoor : MonoBehaviour // This script should be on the Locked Door
 
 
 
-    private void OnMouseExit() // Activates when the player looks away from the door
+    private void OnMouseExit()
     {
 
         CursorHover.SetActive(false);

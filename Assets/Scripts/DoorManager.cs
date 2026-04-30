@@ -1,41 +1,38 @@
-// Coded by Developer Jake -- https://www.youtube.com/developerjake
-// Follow the Backrooms Game Lab (Part 6) to understand what this is for
-
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class DoorManager : MonoBehaviour // This script should be on the Door Trigger
+public class DoorManager : MonoBehaviour
 {
-    public GameObject CursorHover; // The hover cursor that should show when the player is looking at the door
+    public GameObject CursorHover;
 
     public Animation Door;
 
     public AudioSource DoorOpenSound;
 
-    private void OnMouseOver() // Activates when the player looks away from the door
+    private void OnMouseOver()
     {
 
-        if ( PlayerCasting.DistanceFromTarget < 4 ) // If the player IS close enough to the door..
+        if ( PlayerCasting.DistanceFromTarget < 4 )
         {
 
             CursorHover.SetActive(true);
 
 
 
-            if (Keyboard.current.eKey.wasPressedThisFrame) // If the player presses E..
+            if (Keyboard.current.eKey.wasPressedThisFrame)
             {
 
-                GetComponent<BoxCollider>().enabled = false; // Turns off the player's ability to open the door again even though it's already open
+                GetComponent<BoxCollider>().enabled = false;
 
-                Door.Play(); // Play the door open animation
+                Door.Play();
 
-                DoorOpenSound.Play(); // Play the door open sound
+                DoorOpenSound.Play();
 
             }
 
         }
 
-        else // If the player is NOT close enough to the door
+        else
         {
 
             CursorHover.SetActive(false);
@@ -45,7 +42,7 @@ public class DoorManager : MonoBehaviour // This script should be on the Door Tr
 
 
 
-    private void OnMouseExit() // Activates when the player looks away from the door
+    private void OnMouseExit()
     {
 
         CursorHover.SetActive(false);
